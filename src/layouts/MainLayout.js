@@ -27,19 +27,25 @@ const App = () => {
 
   const selectedKeys = pathname.split('/').filter((item) => !!item);
   const items = traverseArray(routes);
-  console.log('rd ~ file: MainLayout.js:30 ~ App ~ items:', items);
+  console.log(
+    'rd ~ file: MainLayout.js:30 ~ App ~ items:',
+    items,
+    selectedKeys,
+  );
 
   const onClick = (e) => {
     const pathArr = [...e.keyPath];
-    console.log('rd ~ file: MainLayout.js:31 ~ onClick ~ pathArr:', pathArr);
     const targetPath = pathArr
       .reverse()
-      .map((item) => (item.startsWith('/') ? item : '/' + item))
-      .join('');
+      .map((item) => (item.startsWith('/') ? '' : item))
+      .join('/');
     console.log(
-      'rd ~ file: MainLayout.js:32 ~ onClick ~ targetPath:',
+      'rd ~ file: MainLayout.js:34 ~ onClick ~ pathArr:',
+      pathArr,
       targetPath,
+      selectedKeys,
     );
+
     nav({ pathname: targetPath });
   };
 
@@ -51,7 +57,7 @@ const App = () => {
           width: 256,
           height: '100vh',
         }}
-        defaultOpenKeys={selectedKeys}
+        defaultOpenKeys={['' + '/', ...selectedKeys]}
         selectedKeys={selectedKeys}
         mode="inline"
         items={items}

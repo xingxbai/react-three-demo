@@ -4,7 +4,6 @@ import renderThree from './three';
 const Demo1 = () => {
   const { pathname } = useLocation();
   let domId = pathname.replaceAll('/', '_');
-  console.log('rd ~ file: demo1.js:6 ~ Demo1 ~ pathname:', domId);
 
   useEffect(() => {
     renderThree('#' + domId);
