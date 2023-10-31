@@ -1,11 +1,6 @@
 import React from 'react';
 import routerConfig from '../router/index';
 
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
 import { Menu } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
